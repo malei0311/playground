@@ -1,0 +1,415 @@
+/* line 17, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 5, ../sass/screen.scss */
+body {
+  padding: 50px 0;
+}
+
+/* line 9, ../sass/screen.scss */
+.clearfix, .playground-cell {
+  *zoom: 1;
+}
+/* line 13, ../sass/screen.scss */
+.clearfix::before, .playground-cell::before, .clearfix::after, .playground-cell::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 19, ../sass/screen.scss */
+.clearfix::after, .playground-cell::after {
+  clear: both;
+}
+
+/* line 24, ../sass/screen.scss */
+.hide {
+  display: none;
+}
+
+/* line 28, ../sass/screen.scss */
+.playground {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 10px 0;
+}
+
+/* line 35, ../sass/screen.scss */
+.playground-cell {
+  margin-bottom: 10px;
+  background-color: #ECF0F1;
+}
+
+/* line 64, ../sass/screen.scss */
+.playground-demo-shadow {
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  float: left;
+  position: relative;
+}
+/* line 43, ../sass/screen.scss */
+.playground-demo-shadow::before, .playground-demo-shadow::after {
+  position: absolute;
+  content: "";
+  z-index: 1;
+}
+/* line 49, ../sass/screen.scss */
+.playground-demo-shadow::before {
+  height: 100%;
+  width: 0;
+  border-left: 1px dashed rgba(0, 0, 0, 0.3);
+  left: calc(50% - 1px / 2);
+}
+/* line 56, ../sass/screen.scss */
+.playground-demo-shadow::after {
+  height: 0;
+  width: 100%;
+  border-top: 1px dashed rgba(0, 0, 0, 0.3);
+  top: calc(50% - 1px / 2);
+}
+
+/* line 77, ../sass/screen.scss */
+.demo-hexagon {
+  position: relative;
+  height: 8em;
+  width: 8em;
+  overflow: hidden;
+  -webkit-transform: skewX(30deg) scaleY(0.86603);
+  -moz-transform: skewX(30deg) scaleY(0.86603);
+  -ms-transform: skewX(30deg) scaleY(0.86603);
+  -o-transform: skewX(30deg) scaleY(0.86603);
+  transform: skewX(30deg) scaleY(0.86603);
+}
+/* line 84, ../sass/screen.scss */
+.demo-hexagon::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: #E67E22;
+  height: 100%;
+  -webkit-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) scaleX(0.86603);
+  -moz-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) scaleX(0.86603);
+  -ms-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) scaleX(0.86603);
+  -o-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) scaleX(0.86603);
+  transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) scaleX(0.86603);
+}
+
+/* line 94, ../sass/screen.scss */
+.demo-triangle {
+  position: relative;
+  height: 8em;
+  width: 8em;
+  overflow: hidden;
+  -webkit-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -moz-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -ms-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -o-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+}
+/* line 101, ../sass/screen.scss */
+.demo-triangle::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: #E67E22;
+  height: 100%;
+  -webkit-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -moz-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -ms-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -o-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+}
+
+/* line 112, ../sass/screen.scss */
+.demo-pentagon {
+  position: relative;
+  height: 8em;
+  width: 8em;
+  overflow: hidden;
+  -webkit-transform: translateY(26.28656%) rotate(-36deg) skewX(18deg) scaleY(0.95106);
+  -moz-transform: translateY(26.28656%) rotate(-36deg) skewX(18deg) scaleY(0.95106);
+  -ms-transform: translateY(26.28656%) rotate(-36deg) skewX(18deg) scaleY(0.95106);
+  -o-transform: translateY(26.28656%) rotate(-36deg) skewX(18deg) scaleY(0.95106);
+  transform: translateY(26.28656%) rotate(-36deg) skewX(18deg) scaleY(0.95106);
+}
+/* line 120, ../sass/screen.scss */
+.demo-pentagon .demo-pentagon-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.32713%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+  -moz-transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.32713%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+  -ms-transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.32713%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+  -o-transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.32713%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+  transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.32713%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+}
+/* line 130, ../sass/screen.scss */
+.demo-pentagon .demo-pentagon-inner::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  -webkit-transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67287%);
+  -moz-transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67287%);
+  -ms-transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67287%);
+  -o-transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67287%);
+  transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67287%);
+}
+
+@-moz-keyframes ss {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    -moz-transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    -moz-transform: rotateY(720deg) rotateX(360deg);
+    transform: rotateY(720deg) rotateX(360deg);
+  }
+}
+
+@-webkit-keyframes ss {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    -webkit-transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    -webkit-transform: rotateY(720deg) rotateX(360deg);
+    transform: rotateY(720deg) rotateX(360deg);
+  }
+}
+
+@-o-keyframes ss {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    -o-transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    -o-transform: rotateY(720deg) rotateX(360deg);
+    transform: rotateY(720deg) rotateX(360deg);
+  }
+}
+
+@-ms-keyframes ss {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    -ms-transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    -ms-transform: rotateY(720deg) rotateX(360deg);
+    transform: rotateY(720deg) rotateX(360deg);
+  }
+}
+
+@keyframes ss {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    transform: rotateY(720deg) rotateX(360deg);
+  }
+}
+
+/* line 150, ../sass/screen.scss */
+.demo-prism-container {
+  height: 8em;
+  width: 8em;
+  position: relative;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -ms-perspective-origin: 50% 50%;
+  -o-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+/* line 159, ../sass/screen.scss */
+.demo-prism-container .demo-prism {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-animation: ss 2s ease-in-out 0s infinite alternate;
+  -moz-animation: ss 2s ease-in-out 0s infinite alternate;
+  -ms-animation: ss 2s ease-in-out 0s infinite alternate;
+  -o-animation: ss 2s ease-in-out 0s infinite alternate;
+  animation: ss 2s ease-in-out 0s infinite alternate;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+/* line 167, ../sass/screen.scss */
+.demo-prism-container .demo-prism .triangle {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -moz-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -ms-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  -o-transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+  transform: translateY(28.86751%) rotate(60deg) skewX(30deg) scaleY(0.86603);
+}
+/* line 174, ../sass/screen.scss */
+.demo-prism-container .demo-prism .triangle::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: #E67E22;
+  height: 100%;
+  -webkit-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -moz-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -ms-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  -o-transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+  transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(-50%);
+}
+/* line 184, ../sass/screen.scss */
+.demo-prism-container .demo-prism .triangle-base {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 189, ../sass/screen.scss */
+.demo-prism-container .demo-prism .triangle-base.up {
+  -webkit-transform: rotateX(-90deg) translateZ(-4em) rotateY(180deg);
+  -moz-transform: rotateX(-90deg) translateZ(-4em) rotateY(180deg);
+  -ms-transform: rotateX(-90deg) translateZ(-4em) rotateY(180deg);
+  -o-transform: rotateX(-90deg) translateZ(-4em) rotateY(180deg);
+  transform: rotateX(-90deg) translateZ(-4em) rotateY(180deg);
+}
+/* line 193, ../sass/screen.scss */
+.demo-prism-container .demo-prism .triangle-base.bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(4em);
+  -moz-transform: rotateX(-90deg) translateZ(4em);
+  -ms-transform: rotateX(-90deg) translateZ(4em);
+  -o-transform: rotateX(-90deg) translateZ(4em);
+  transform: rotateX(-90deg) translateZ(4em);
+}
+/* line 199, ../sass/screen.scss */
+.demo-prism-container .demo-prism .rect {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 207, ../sass/screen.scss */
+.demo-prism-container .demo-prism .rect1 {
+  -webkit-transform: rotateY(60deg) translateZ(2.3094em);
+  -moz-transform: rotateY(60deg) translateZ(2.3094em);
+  -ms-transform: rotateY(60deg) translateZ(2.3094em);
+  -o-transform: rotateY(60deg) translateZ(2.3094em);
+  transform: rotateY(60deg) translateZ(2.3094em);
+  background-color: rgba(255, 0, 0, 0.8);
+}
+/* line 212, ../sass/screen.scss */
+.demo-prism-container .demo-prism .rect2 {
+  -webkit-transform: rotateY(180deg) translateZ(2.3094em);
+  -moz-transform: rotateY(180deg) translateZ(2.3094em);
+  -ms-transform: rotateY(180deg) translateZ(2.3094em);
+  -o-transform: rotateY(180deg) translateZ(2.3094em);
+  transform: rotateY(180deg) translateZ(2.3094em);
+  background-color: rgba(0, 128, 0, 0.8);
+}
+/* line 216, ../sass/screen.scss */
+.demo-prism-container .demo-prism .rect3 {
+  -webkit-transform: rotateY(300deg) translateZ(2.3094em);
+  -moz-transform: rotateY(300deg) translateZ(2.3094em);
+  -ms-transform: rotateY(300deg) translateZ(2.3094em);
+  -o-transform: rotateY(300deg) translateZ(2.3094em);
+  transform: rotateY(300deg) translateZ(2.3094em);
+  background-color: rgba(255, 255, 0, 0.8);
+}
