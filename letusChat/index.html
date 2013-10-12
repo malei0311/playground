@@ -4,6 +4,25 @@
   <meta charset="UTF-8">
   <title>Let's Chat</title>
   <style>
+    @font-face{
+      font-family:"Open Sans Light";font-style:normal;
+      font-weight:normal;
+      src:url("fonts/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/OpenSans-Light-webfont.woff") format("woff"),url("fonts/OpenSans-Light-webfont.ttf") format("truetype"),url("fonts/OpenSans-Light-webfont.svg#OpenSansLight") format("svg");
+    }
+
+    @font-face{
+      font-family:"Open Sans";
+      font-style:normal;
+      font-weight:normal;
+      src:url("fonts/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/OpenSans-Regular-webfont.woff") format("woff"),url("fonts/OpenSans-Regular-webfont.ttf") format("truetype"),url("fonts/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+    }
+    @font-face{
+      font-family:"Open Sans";
+      font-style:normal;
+      font-weight:bold;
+      src:url("fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/OpenSans-Semibold-webfont.woff") format("woff"),url("fonts/OpenSans-Semibold-webfont.ttf") format("truetype"),url("fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold") format("svg");
+    }
+
     @-webkit-keyframes changeBgPos {
       0% {
         background-position: left top;
@@ -28,12 +47,13 @@
       background: url(images/bg.jpg) no-repeat center center fixed;
       background-size: cover;
       overflow: hidden;
+      font-family: "Open Sans Light",sans-serif;
     }
     h1 {
       width: 800px;
       margin: 100px auto 0px;
       font-weight: 700;
-      font-size: 120px;
+      font-size: 130px;
       text-align: center; 
     }
     .other {
