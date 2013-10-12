@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let's Chat</title>
+  <style>
+    @-webkit-keyframes changeBgPos {
+      0% {
+        background-position: left top;
+      }
+      25% {
+        background-position: right top;
+      }
+      50% {
+        background-position: left bottom;
+      }
+      75% {
+        background-position: right bottom;
+      }
+      100% {
+        background-position: left top;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url(images/bg1.jpg) no-repeat center center fixed;
+      background-size: cover;
+    }
+    h1 {
+      width: 800px;
+      margin: 100px auto 0px;
+      font-weight: 700;
+      font-size: 120px;
+      text-align: center; 
+    }
+    .other {
+      color: #FFF;
+      text-shadow:0 0 5px rgba(0,0,0,.5);
+    }
+    .webkit {
+      -webkit-text-fill-color:transparent;
+      /*-webkit-text-stroke: 1px #000;*/
+      /*border: 1px solid #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,.5),0 0 200px #000;*/
+      background: url(images/h1-1.png) repeat scroll transparent;
+      -webkit-background-clip: text;
+      -webkit-animation: changeBgPos 20s ease infinite alternate;
+    }
+    .wait {
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      text-shadow: 0 0 2px rgba(0,0,0,.5),5px 5px 100px rgba(0,0,0,.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="big-title" class="other">Let's chat!</h1>
+  <p class="wait">Please wait a minute...</p>
+  <script>
+    // 这里为什么用 UA detect：background-clip while it's value is 'text' only webkit support it, but when the value is some other , numbers of browsers support.
+    var Utils = {
+      addClass : function(ele,className) {
+        ele.className += ' ' + className; //以空格分开
+      },
+      removeClass : function(ele,className) {
+        var tmpClassName = ele.className;
+        ele.className = null;    //清除类名
+        ele.className = tmpClassName.split(new RegExp(' ' + className + '|' + className + ' ' + '|' + '^' + className + '$','ig')).join('');
+      }
+    }
+    var UA = navigator.userAgent.toLowerCase();
+    if(/webkit/i.test(UA)) {
+      var target = document.getElementById('big-title');
+      Utils.removeClass(target,'other');
+      Utils.addClass(target,'webkit');
+    }
+  </script>
+  <script src="togetherjs-min.js"></script>
+  <script>
+    //TogetherJS.config('enableShortcut',true);
+    window.onload = function() {
+      TogetherJS();
+    }
+  </script>
+</body>
+</html>
