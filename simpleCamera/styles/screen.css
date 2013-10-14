@@ -1,0 +1,591 @@
+/* line 14, ../sass/screen.scss */
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #383540;
+  overFlow: hidden;
+}
+
+/* line 22, ../sass/screen.scss */
+.camera-demo:after, .camera-demo:before, .shot:before, .shot:after, [class^=lens]:after, .light:after {
+  content: ' ';
+  position: absolute;
+  display: block;
+}
+
+/* line 45, ../sass/screen.scss */
+.flash {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  -webkit-animation: flash 2s 1s ease-in-out infinite normal;
+  -moz-animation: flash 2s 1s ease-in-out infinite normal;
+  -ms-animation: flash 2s 1s ease-in-out infinite normal;
+  -o-animation: flash 2s 1s ease-in-out infinite normal;
+  animation: flash 2s 1s ease-in-out infinite normal;
+}
+
+/* line 53, ../sass/screen.scss */
+.camera-demo {
+  position: absolute;
+  height: 60px;
+  width: 70px;
+  left: calc(50% - 70px / 2);
+  top: calc(50% - 60px /2);
+  background: #706061;
+  border-radius: 6px;
+  box-shadow: 1px 2px 10px 1px #211a22;
+}
+/* line 63, ../sass/screen.scss */
+.camera-demo:after {
+  background: #f6e1ce;
+  right: 5px;
+  top: 5px;
+  height: 3px;
+  width: 8px;
+  border-radius: 1px;
+  z-index: 1;
+}
+/* line 74, ../sass/screen.scss */
+.camera-demo:before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  left: calc(50% - 50px / 2);
+  top: calc(50% - 50px / 2);
+  background: #f6e1ce;
+  z-index: 1;
+}
+
+/* line 82, ../sass/screen.scss */
+.shot {
+  position: absolute;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  left: calc(50% - 44px / 2);
+  top: calc(50% - 44px / 2);
+  -webkit-animation: rotate 1s 0s ease-in-out infinite alternate;
+  -moz-animation: rotate 1s 0s ease-in-out infinite alternate;
+  -ms-animation: rotate 1s 0s ease-in-out infinite alternate;
+  -o-animation: rotate 1s 0s ease-in-out infinite alternate;
+  animation: rotate 1s 0s ease-in-out infinite alternate;
+  background: #282739;
+  z-index: 3;
+  overflow: hidden;
+}
+/* line 90, ../sass/screen.scss */
+.shot:before {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  left: calc(50% - 36px / 2);
+  top: calc(50% - 36px / 2);
+  background: #5b4842;
+}
+/* line 96, ../sass/screen.scss */
+.shot:after {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: calc(50% - 20px / 2);
+  top: calc(50% - 20px / 2);
+  -webkit-animation: eye 1s 0s ease-in-out infinite alternate;
+  -moz-animation: eye 1s 0s ease-in-out infinite alternate;
+  -ms-animation: eye 1s 0s ease-in-out infinite alternate;
+  -o-animation: eye 1s 0s ease-in-out infinite alternate;
+  animation: eye 1s 0s ease-in-out infinite alternate;
+  background: #282633;
+}
+
+/* line 104, ../sass/screen.scss */
+[class^=lens] {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height: 1px;
+  width: 10px;
+  -webkit-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -moz-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -ms-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -o-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+/* line 114, ../sass/screen.scss */
+[class^=lens]:after {
+  width: 8px;
+  -webkit-animation: blink 1s 0s ease-in-out infinite alternate;
+  -moz-animation: blink 1s 0s ease-in-out infinite alternate;
+  -ms-animation: blink 1s 0s ease-in-out infinite alternate;
+  -o-animation: blink 1s 0s ease-in-out infinite alternate;
+  animation: blink 1s 0s ease-in-out infinite alternate;
+  height: 1px;
+  left: 100%;
+  top: 0;
+  background: #715957;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, #715957 50%, #5b4842 100%);
+  box-shadow: 3px -1px 4px 0px rgba(0, 0, 0, 0.8);
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-1 {
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-2 {
+  -webkit-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -ms-transform: rotate(80deg);
+  -o-transform: rotate(80deg);
+  transform: rotate(80deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-3 {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-4 {
+  -webkit-transform: rotate(160deg);
+  -moz-transform: rotate(160deg);
+  -ms-transform: rotate(160deg);
+  -o-transform: rotate(160deg);
+  transform: rotate(160deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-5 {
+  -webkit-transform: rotate(200deg);
+  -moz-transform: rotate(200deg);
+  -ms-transform: rotate(200deg);
+  -o-transform: rotate(200deg);
+  transform: rotate(200deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-6 {
+  -webkit-transform: rotate(240deg);
+  -moz-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  -o-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-7 {
+  -webkit-transform: rotate(280deg);
+  -moz-transform: rotate(280deg);
+  -ms-transform: rotate(280deg);
+  -o-transform: rotate(280deg);
+  transform: rotate(280deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-8 {
+  -webkit-transform: rotate(320deg);
+  -moz-transform: rotate(320deg);
+  -ms-transform: rotate(320deg);
+  -o-transform: rotate(320deg);
+  transform: rotate(320deg);
+}
+
+/* line 130, ../sass/screen.scss */
+.lens-9 {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+/* line 135, ../sass/screen.scss */
+.light {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height: 1px;
+  width: 10px;
+  z-index: 10;
+  -webkit-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -moz-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -ms-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -o-animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  animation: blinkZ 1s 0s ease-in-out infinite alternate;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/* line 148, ../sass/screen.scss */
+.light:after {
+  width: 8px;
+  height: 8px;
+  -webkit-animation: light 1s 0s ease-in-out infinite alternate;
+  -moz-animation: light 1s 0s ease-in-out infinite alternate;
+  -ms-animation: light 1s 0s ease-in-out infinite alternate;
+  -o-animation: light 1s 0s ease-in-out infinite alternate;
+  animation: light 1s 0s ease-in-out infinite alternate;
+  background: #d1ccc9;
+  left: calc(100% - 8px / 2);
+  border-radius: 50%;
+  top: -4px;
+}
+
+@-moz-keyframes blink {
+  /* line 162, ../sass/screen.scss */
+  100% {
+    width: 13px;
+  }
+}
+
+@-webkit-keyframes blink {
+  /* line 162, ../sass/screen.scss */
+  100% {
+    width: 13px;
+  }
+}
+
+@-o-keyframes blink {
+  /* line 162, ../sass/screen.scss */
+  100% {
+    width: 13px;
+  }
+}
+
+@-ms-keyframes blink {
+  /* line 162, ../sass/screen.scss */
+  100% {
+    width: 13px;
+  }
+}
+
+@keyframes blink {
+  /* line 162, ../sass/screen.scss */
+  100% {
+    width: 13px;
+  }
+}
+
+@-moz-keyframes eye {
+  /* line 169, ../sass/screen.scss */
+  100% {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    left: calc(50% - 10px / 2);
+    top: calc(50% - 10px / 2);
+  }
+}
+
+@-webkit-keyframes eye {
+  /* line 169, ../sass/screen.scss */
+  100% {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    left: calc(50% - 10px / 2);
+    top: calc(50% - 10px / 2);
+  }
+}
+
+@-o-keyframes eye {
+  /* line 169, ../sass/screen.scss */
+  100% {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    left: calc(50% - 10px / 2);
+    top: calc(50% - 10px / 2);
+  }
+}
+
+@-ms-keyframes eye {
+  /* line 169, ../sass/screen.scss */
+  100% {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    left: calc(50% - 10px / 2);
+    top: calc(50% - 10px / 2);
+  }
+}
+
+@keyframes eye {
+  /* line 169, ../sass/screen.scss */
+  100% {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    left: calc(50% - 10px / 2);
+    top: calc(50% - 10px / 2);
+  }
+}
+
+@-moz-keyframes blinkZ {
+  /* line 176, ../sass/screen.scss */
+  100% {
+    width: 5px;
+  }
+}
+
+@-webkit-keyframes blinkZ {
+  /* line 176, ../sass/screen.scss */
+  100% {
+    width: 5px;
+  }
+}
+
+@-o-keyframes blinkZ {
+  /* line 176, ../sass/screen.scss */
+  100% {
+    width: 5px;
+  }
+}
+
+@-ms-keyframes blinkZ {
+  /* line 176, ../sass/screen.scss */
+  100% {
+    width: 5px;
+  }
+}
+
+@keyframes blinkZ {
+  /* line 176, ../sass/screen.scss */
+  100% {
+    width: 5px;
+  }
+}
+
+@-moz-keyframes rotate {
+  /* line 182, ../sass/screen.scss */
+  100% {
+    -moz-transform: rotate(137.5deg);
+    transform: rotate(137.5deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  /* line 182, ../sass/screen.scss */
+  100% {
+    -webkit-transform: rotate(137.5deg);
+    transform: rotate(137.5deg);
+  }
+}
+
+@-o-keyframes rotate {
+  /* line 182, ../sass/screen.scss */
+  100% {
+    -o-transform: rotate(137.5deg);
+    transform: rotate(137.5deg);
+  }
+}
+
+@-ms-keyframes rotate {
+  /* line 182, ../sass/screen.scss */
+  100% {
+    -ms-transform: rotate(137.5deg);
+    transform: rotate(137.5deg);
+  }
+}
+
+@keyframes rotate {
+  /* line 182, ../sass/screen.scss */
+  100% {
+    transform: rotate(137.5deg);
+  }
+}
+
+@-moz-keyframes light {
+  /* line 188, ../sass/screen.scss */
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: -1.5px;
+  }
+}
+
+@-webkit-keyframes light {
+  /* line 188, ../sass/screen.scss */
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: -1.5px;
+  }
+}
+
+@-o-keyframes light {
+  /* line 188, ../sass/screen.scss */
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: -1.5px;
+  }
+}
+
+@-ms-keyframes light {
+  /* line 188, ../sass/screen.scss */
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: -1.5px;
+  }
+}
+
+@keyframes light {
+  /* line 188, ../sass/screen.scss */
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: -1.5px;
+  }
+}
+
+@-moz-keyframes flash {
+  /* line 197, ../sass/screen.scss */
+  97% {
+    background: none;
+  }
+
+  /* line 200, ../sass/screen.scss */
+  98% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 203, ../sass/screen.scss */
+  99% {
+    background: none;
+  }
+
+  /* line 206, ../sass/screen.scss */
+  100% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@-webkit-keyframes flash {
+  /* line 197, ../sass/screen.scss */
+  97% {
+    background: none;
+  }
+
+  /* line 200, ../sass/screen.scss */
+  98% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 203, ../sass/screen.scss */
+  99% {
+    background: none;
+  }
+
+  /* line 206, ../sass/screen.scss */
+  100% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@-o-keyframes flash {
+  /* line 197, ../sass/screen.scss */
+  97% {
+    background: none;
+  }
+
+  /* line 200, ../sass/screen.scss */
+  98% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 203, ../sass/screen.scss */
+  99% {
+    background: none;
+  }
+
+  /* line 206, ../sass/screen.scss */
+  100% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@-ms-keyframes flash {
+  /* line 197, ../sass/screen.scss */
+  97% {
+    background: none;
+  }
+
+  /* line 200, ../sass/screen.scss */
+  98% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 203, ../sass/screen.scss */
+  99% {
+    background: none;
+  }
+
+  /* line 206, ../sass/screen.scss */
+  100% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes flash {
+  /* line 197, ../sass/screen.scss */
+  97% {
+    background: none;
+  }
+
+  /* line 200, ../sass/screen.scss */
+  98% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 203, ../sass/screen.scss */
+  99% {
+    background: none;
+  }
+
+  /* line 206, ../sass/screen.scss */
+  100% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}

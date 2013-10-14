@@ -1,0 +1,209 @@
+@import "compass/css3";
+@import "animation";
+
+$cameraHeight: 60px;
+$cameraWidth: 70px;
+$base: #00fffc;
+
+$cameraInner: 50px;
+$cameraShot: $cameraInner - 14px;
+$cameraEye: 20px;
+$cameraEyeClone: 20px;
+$light: 8px;
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #383540;
+  overFlow: hidden;
+}
+
+%pseudo {
+  content: ' ';
+  position: absolute;
+  display: block;
+}
+
+@mixin circle($c) {
+  height: $c;
+  width: $c;
+  border-radius: 50%;
+  left: calc(50% - #{$c} / 2);
+  top: calc(50% - #{$c} / 2);
+}
+
+// @mixin animation($type,$duration:1s,$delay:0s,$direction: alternate) {
+//   animation-name: $type;
+//   animation-timing-function: ease-in-out;
+//   animation-iteration-count: infinite;
+//   animation-duration: $duration;
+//   animation-delay: $delay;
+//   animation-direction: $direction;
+// }
+
+.flash {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   z-index: 20;
+   @include animation(flash 2s 1s ease-in-out infinite normal);   
+}
+    
+.camera-demo {
+  position: absolute;
+  height: $cameraHeight;
+  width: $cameraWidth;
+  left: calc(50% - #{$cameraWidth} / 2);
+  top: calc(50% - #{$cameraHeight} /2);
+  background: #706061;
+  border-radius: 6px;
+  box-shadow: 1px 2px 10px 1px #211a22;
+  
+  &:after{
+    @extend %pseudo;
+    background: #f6e1ce;
+    right: 5px;
+    top: 5px;
+    height: 3px;
+    width: 8px;
+    border-radius: 1px;
+    z-index: 1;
+  }
+  
+  &:before{
+    @extend %pseudo;
+    @include circle($cameraInner);
+    background: #f6e1ce;
+    z-index: 1;
+  }
+}
+
+.shot {
+  position: absolute;
+  @include circle($cameraInner - 6px);
+  @include animation(rotate 1s 0s ease-in-out infinite alternate);
+  background: #282739;
+  z-index: 3;
+  overflow: hidden;
+  
+  &:before{
+    @extend %pseudo;
+    @include circle($cameraShot);
+    background: #5b4842;
+  }
+  
+  &:after{
+    @extend %pseudo;
+    @include circle($cameraEye);
+    @include animation(eye 1s 0s ease-in-out infinite alternate);
+    background: #282633;
+  }
+}
+
+[class^=lens] {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height:1px;
+  width: $cameraEye / 2;
+  @include animation(blinkZ 1s 0s ease-in-out infinite alternate);
+  @include transform-origin(0%, 50%);
+  
+  &:after {
+    @extend %pseudo;
+    width: ($cameraShot - $cameraEye) / 2;
+    @include animation(blink 1s 0s ease-in-out infinite alternate);
+    height: 1px;
+    left: 100%;
+    top: 0;
+    background: #715957;
+    background: linear-gradient(to right,rgba(255,255,255,.1) 0%,#715957 50%,#5b4842 100%);
+    box-shadow: 3px -1px 4px 0px rgba(0,0,0,.8);
+    @include transform-origin(0%, 50%);
+    @include transform(rotate(45deg));
+  }
+}
+
+@for $i from 1 through 9 {
+  .lens-#{$i} {
+    @include transform(rotate(40 * $i + deg));
+  }
+}
+
+.light {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height:1px;
+  width: $cameraEye / 2;
+  z-index: 10;
+  //background: red;
+  @include animation(blinkZ 1s 0s ease-in-out infinite alternate);
+  @include transform-origin(0%, 50%);
+  @include transform(rotate(-45deg));
+      
+  &:after {
+    @extend %pseudo;
+    width: $light;
+    height: $light;
+    @include animation(light 1s 0s ease-in-out infinite alternate);
+    background: #d1ccc9;
+    left: calc(100% - #{$light} / 2);
+    border-radius: 50%;
+    top: - ($light / 2);
+  }
+}
+
+@include keyframes(blink) {
+  
+  100% {
+    width: ($cameraShot - $cameraEye + 10px) / 2;
+  }
+}
+
+@include keyframes(eye) {
+  
+  100% {
+    @include circle($cameraEye - 10px);
+  }
+}
+
+@include keyframes(blinkZ) {
+  
+  100% {
+    width: ($cameraEye - 10px) / 2;
+  }
+}
+    
+@include keyframes(rotate) {
+  100% {
+    @include transform(rotate( 137.5deg ));
+  }
+}
+    
+@include keyframes(light) {
+  100% {
+    width: 3px;
+    height: 3px;
+    left: 100%;
+    top: - (3px / 2);
+  }
+}
+
+@include keyframes(flash) {
+  97% {
+    background: none;
+  }
+  98% {
+    background: rgba(255,255,255,.8);
+  }
+  99% {
+    background: none;
+  }
+  100% {
+    background: rgba(255,255,255,.8);
+  }
+}
