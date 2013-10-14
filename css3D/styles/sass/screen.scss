@@ -34,7 +34,7 @@ body {
 
 .playground-cell {
   margin-bottom: 10px;
-  background-color: #ECF0F1;
+  background-color: rgba(0,0,0,.03);
   @extend .clearfix;
 }
 
@@ -216,6 +216,174 @@ body {
     .rect3 {
       @include transform(rotateY(300deg) translateZ(2.3094008em));
       background-color: fade-out(yellow,.2);
+    }
+  }
+}
+
+.playground-cell-carousel {
+  position: relative;
+  padding: 150px 0;
+}
+
+@include keyframes(carousel) {
+  100% {
+    @include transform(rotateX(360deg) rotateY(360deg))
+  }
+}
+
+@include keyframes(figureTarget) {
+  100% {
+    @include transform(rotateX(45deg) rotateY(145deg));
+  }
+}
+
+$n: 20;
+$radius: 5em;
+$radian: 2 * pi() / $n;
+$borderWidth:  2 * $radius * tan($radian / 2);
+$base: #00fffc;
+$is_vertical: false;
+
+@for $i from 0 to $n {
+  @include keyframes(figureTarget#{$i}) {
+    100% {
+      @include transform(rotateY(#{$i * $radian}rad) translateZ($radius) rotateX(#{$i * $radian / 2}rad))
+    }
+  }
+}
+
+.demo-carousel-container {
+  position: relative;
+  width: 0;
+  left: 50%;
+  top: 50%;
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+
+  .demo-carousel {
+    position: absolute;
+    @include transform-style(preserve-3d);
+    // @include transform(rotateX(45deg));
+    @include animation(carousel 10s 0s ease infinite alternate);    
+
+    // @include transform(translateZ(-$radius));
+
+    figure {
+      display: block;
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      @if $is_vertical {
+        height: $borderWidth;
+        line-height: $borderWidth;
+      } @else {
+        line-height: 40px;
+        width: $borderWidth;
+      }
+    }
+  }
+
+  .demo-carousel-1 {
+    $salt: 1;
+    // @include animation(carousel 10s 0s ease infinite alternate);
+    figure {
+      @for $i from 0 to $n {
+
+        &:nth-child(#{$i + 1}) {
+          background: rgba(adjust-hue($base, $i * 360deg / $n), 0.5);
+          @if $is_vertical {
+            @include transform(rotateX(#{$i * $radian}rad) translateZ($radius));
+          } @else {
+            @include transform(rotateY(#{$i * $radian}rad) translateZ($radius));
+            // @include animation(figureTarget #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+            @include animation(figureTarget #{$salt}s #{$salt * $i}s ease infinite alternate);
+            // @include animation(figureTarget#{$i} #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+          }
+        }
+      }
+    }
+  }
+  .demo-carousel-2 {
+    $salt: 0.1;
+    // @include animation(carousel 10s 0s ease infinite alternate);
+    figure {
+      @for $i from 0 to $n {
+
+        &:nth-child(#{$i + 1}) {
+          background: rgba(adjust-hue($base, $i * 360deg / $n), 0.5);
+          @if $is_vertical {
+            @include transform(rotateX(#{$i * $radian}rad) translateZ($radius));
+          } @else {
+            @include transform(rotateY(#{$i * $radian}rad) translateZ($radius));
+            @include animation(figureTarget #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+            // @include animation(figureTarget #{$salt}s #{$salt * $i}s ease infinite alternate);
+            // @include animation(figureTarget#{$i} #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+          }
+        }
+      }
+    }
+  }
+  .demo-carousel-3 {
+    $salt: 0.1;
+    // @include animation(carousel 10s 0s ease infinite alternate);
+    figure {
+      line-height: 100px;
+      // @include transform-origin(50%,0%);
+      @for $i from 0 to $n {
+
+        &:nth-child(#{$i + 1}) {
+          background: rgba(adjust-hue($base, $i * 360deg / $n), 0.5);
+          @if $is_vertical {
+            @include transform(rotateX(#{$i * $radian}rad) translateZ($radius));
+          } @else {
+            @include transform(rotateY(#{$i * $radian}rad) translateZ($radius));
+            // @include animation(figureTarget #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+            // @include animation(figureTarget #{$salt}s #{$salt * $i}s ease infinite alternate);
+            @include animation(figureTarget#{$i} #{$salt * $n}s #{$salt * $i}s ease infinite alternate);
+          }
+        }
+      }
+    }
+  }
+}
+
+.playground-cell-circle {
+  position: relative;
+  padding: 300px 0;
+}
+
+.demo-circle-container {
+  position: relative;
+  width: 0;
+  left: 50%;
+  top: 50%;
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+
+  .demo-circle {
+    position: absolute;
+    @include transform-style(preserve-3d);
+    // @include transform(rotateY(90deg));
+    @include animation(carousel 10s 0s ease infinite alternate);
+    figure {
+      $circleTranslatez: 8em;
+      $circleDegree: 5;
+      $circleRadian: $circleDegree * pi() / 180;
+      $width: 2 * $circleTranslatez * tan($circleRadian);
+
+      display: block;
+      position: absolute;
+      width: $width;
+      height: 3px;
+
+      @for $i from 0 to 720 {
+        &:nth-child(#{$i + 1}) {
+          background: rgba(adjust-hue($base, $i * 360deg / $n), .5);
+          @include transform(rotateX(#{$i/30}deg) translateY(#{$i/4}px) rotateY(#{$i*$circleDegree}deg) translateZ(8em));
+        }
+      }
     }
   }
 }
