@@ -362,26 +362,42 @@ $is_vertical: false;
   @include perspective(1000px);
   @include perspective-origin(50% 50%);
 
+  $circleTranslatez: 8em;
+  $circleDegree: 5;
+  $circleRadian: $circleDegree * pi() / 180;
+  $width: 2 * $circleTranslatez * tan($circleRadian);
+  
   .demo-circle {
     position: absolute;
     @include transform-style(preserve-3d);
     // @include transform(rotateY(90deg));
     @include animation(carousel 10s 0s ease infinite alternate);
     figure {
-      $circleTranslatez: 8em;
-      $circleDegree: 5;
-      $circleRadian: $circleDegree * pi() / 180;
-      $width: 2 * $circleTranslatez * tan($circleRadian);
 
       display: block;
       position: absolute;
       width: $width;
       height: 3px;
+    }
+  }
 
+  .demo-circle-1 {
+    figure {
       @for $i from 0 to 720 {
         &:nth-child(#{$i + 1}) {
           background: rgba(adjust-hue($base, $i * 360deg / $n), .5);
           @include transform(rotateX(#{$i/30}deg) translateY(#{$i/4}px) rotateY(#{$i*$circleDegree}deg) translateZ(8em));
+        }
+      }
+    }
+  }
+
+  .demo-circle-2 {
+    figure {
+      @for $i from 0 to 720 {
+        &:nth-child(#{$i + 1}) {
+          background: rgba(adjust-hue($base, $i * 360deg / $n), .5);
+          @include transform(rotateX(#{$i/2}deg) rotateY(#{$i*$circleDegree}deg) translateZ(8em));
         }
       }
     }
