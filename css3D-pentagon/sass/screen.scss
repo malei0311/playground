@@ -335,14 +335,14 @@ $translateY: 50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%;
     }
 
     .pentagon3d-group-1 {
-      @include transform(translateY(39.5%));  // 39.5%
-      @include animation(groupOne 3s ease-in-out 0s infinite alternate);
+      @include transform(translateY(-7.5%));  // 39.5%
+      @include animation(groupOne 3s ease-in-out 1s infinite alternate);
 
     }
 
     .pentagon3d-group-2 {
       @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
-      @include animation(groupTwo 3s ease-in-out 0s infinite alternate);
+      @include animation(groupTwo 3s ease-in-out 1s infinite alternate);
     }
 
     .pentagon-base {
@@ -365,7 +365,7 @@ $translateY: 50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%;
     }
 
     .pentagon-base-base {
-      @include transform(translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateX(-90deg)); // translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%)
+      @include transform(translateY(50%) rotateX(-90deg)); // translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%)
     }
 
     .pentagon-base-side {
@@ -384,13 +384,13 @@ $translateY: 50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%;
     @for $i from 1 to 6 {
       .pentagon-base-#{$i + 1} {
         @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
-        @include animation(xx#{$i} 3s ease-in-out 0s infinite alternate);
+        @include animation(xx#{$i} 3s ease-in-out 1s infinite alternate);  // animation-delay 改成 < 1值有bug
       }
     }
     @for $i from 7 to 12 {
       .pentagon-base-#{$i + 1} {
         @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 7) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
-        @include animation(xx#{$i - 6} 3s ease-in-out 0s infinite alternate);
+        @include animation(xx#{$i - 6} 3s ease-in-out 1s infinite alternate); // animation-delay 改成 < 1值有bug
       }
     }
   }
