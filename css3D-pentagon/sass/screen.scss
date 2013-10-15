@@ -134,12 +134,12 @@ body {
     }
 
     .pentagon3d-group-1 {
-      // @include transform(rotateX(-45deg));
+      @include transform(translateY(-7.5%));
 
     }
 
     .pentagon3d-group-2 {
-      @include transform(rotateX(180deg) rotateY(72deg) translateY(-15%));
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
     }
 
     .pentagon-base {
@@ -173,6 +173,404 @@ body {
         &:nth-child(#{$j+1}) {
           @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
         }
+      }
+    }
+  }
+}
+
+.playground-cell-pentagon3d-1 {
+  padding: 200px 0;
+  position: relative;
+}
+
+.demo-pentagon3d-1-container {
+  height: 0;
+  width: 0;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+  // @include transform-style(perserve-3d);
+  
+
+  .demo-pentagon3d-1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include transform-style(preserve-3d);
+    @include transition(all 1s);
+    @include animation(ss 2s ease-in-out 0s infinite alternate);
+
+    .pentagon3d-group {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      @include transform-style(preserve-3d);
+    }
+
+    .pentagon3d-group-1 {
+      @include transform(translateY(-7.5%));
+
+    }
+
+    .pentagon3d-group-2 {
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
+    }
+
+    .pentagon-base {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+    $base: #00fffc;
+
+    @for $i from 0 to 12 {
+      .pentagon-base-#{$i+1} {
+        .demo-pentagon-inner {
+          &::before {
+            content: "#{$i+1}";
+            background: rgba(adjust-hue($base, $i * 360deg / 12), 0.5);
+          }
+        }
+      }
+    }
+
+    $translateZ: 8 * sin(18deg)/(tan(36deg)*(2*sin(18deg)+1));
+
+    .pentagon-base-base {
+      @include transform(translateY(50%) rotateX(-90deg));
+    }
+
+    .pentagon-base-side {
+      @include transform-origin(50%,50% + sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%);
+      
+      @for $j from 1 to 6 {
+        &:nth-child(#{$j+1}) {
+          @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        }
+      }
+    }
+  }
+}
+
+@include keyframes(oo) {
+  25% {
+    left: 80%;
+    top: 50%;
+  }
+  50% {
+    left: 50%;
+    top: 60%;
+  }
+  75% {
+    left: 20%;
+    top: 50%;
+  }
+  100% {
+    left: calc(50% - 4em);
+    top: 0%;
+  }
+}
+
+@include keyframes(groupOne) {
+  100% {
+    top: 50%;
+  }
+  // 100% {
+  //   @include transform(translateY(39.5%));
+  // }
+}
+@include keyframes(groupTwo) {
+  100% {
+    top: -50%;
+  }
+  // 100% {
+  //   @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
+  // }
+}
+
+$translateZ: 8 * sin(18deg)/(tan(36deg)*(2*sin(18deg)+1));
+$translateY: 50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%;
+
+@for $i from 0 to 5 {
+  @include keyframes(xx#{$i+1}) {
+    100% {
+      @include transform(translateY(#{$translateY}) rotateY(#{36 + $i * 72}deg) translateZ(#{$translateZ}em) rotateX(-90deg));
+    }
+  }
+}
+
+.playground-cell-pentagon3d-2  {
+  position: relative;
+  height: 700px;
+}
+
+.demo-pentagon3d-2-container {
+  height: 8em;
+  width: 8em;
+  position: relative;
+  left: calc(50% - 4em);
+  top: calc(50% - 4em);
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+  @include animation(oo 20s ease-in-out 0s infinite alternate);
+  // @include transform-style(perserve-3d);
+  
+
+  .demo-pentagon3d-2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include transform-style(preserve-3d);
+    @include transition(all 1s);
+    // @include transform(rotateX(90deg));
+    @include animation(ss 3s ease-in-out 0s infinite alternate);
+
+    .pentagon3d-group {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      @include transform-style(preserve-3d);
+    }
+
+    .pentagon3d-group-1 {
+      @include transform(translateY(39.5%));  // 39.5%
+      @include animation(groupOne 3s ease-in-out 0s infinite alternate);
+
+    }
+
+    .pentagon3d-group-2 {
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
+      @include animation(groupTwo 3s ease-in-out 0s infinite alternate);
+    }
+
+    .pentagon-base {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      // @include backface-visibility(hidden);
+    }
+    $base: #00fffc;
+
+    @for $i from 0 to 12 {
+      .pentagon-base-#{$i+1} {
+        .demo-pentagon-inner {
+          &::before {
+            content: "#{$i+1}";
+            background: rgba(adjust-hue($base, $i * 360deg / 12), 0.5);
+          }
+        }
+      }
+    }
+
+    .pentagon-base-base {
+      @include transform(translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateX(-90deg)); // translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%)
+    }
+
+    .pentagon-base-side {
+      @include transform-origin(50%,50% + sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%);
+      
+      // @for $j from 1 to 6 {
+      //   &:nth-child(#{$j+1}) {
+      //     @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-90deg));
+      //     @include animation(xx#{$j} 1s ease-in-out 0s infinite alternate);
+      //   }
+      // }
+    }
+
+    $salt: 0.6;
+
+    @for $i from 1 to 6 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i} 3s ease-in-out 0s infinite alternate);
+      }
+    }
+    @for $i from 7 to 12 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 7) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i - 6} 3s ease-in-out 0s infinite alternate);
+      }
+    }
+  }
+}
+
+.demo-pentagon3d-3-container {
+  height: 8em;
+  width: 8em;
+  position: relative;
+  left: calc(50% - 4em);
+  top: calc(50% - 4em);
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+  @include animation(oo 20s ease-in-out 0s infinite alternate);
+  // @include transform-style(perserve-3d);
+  
+
+  .demo-pentagon3d-3 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include transform-style(preserve-3d);
+    @include transition(all 1s);
+    // @include transform(rotateX(90deg));
+    @include animation(ss 3s ease-in-out 0s infinite alternate);
+
+    .pentagon3d-group {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      @include transform-style(preserve-3d);
+    }
+
+    .pentagon3d-group-1 {
+      @include transform(translateY(-7.5%));  // 39.5%
+      @include animation(groupOne 3s ease-in-out 0s infinite alternate);
+
+    }
+
+    .pentagon3d-group-2 {
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
+      @include animation(groupTwo 3s ease-in-out 0s infinite alternate);
+    }
+
+    .pentagon-base {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      // @include backface-visibility(hidden);
+    }
+    $base: #00fffc;
+
+    @for $i from 0 to 12 {
+      .pentagon-base-#{$i+1} {
+        .demo-pentagon-inner {
+          &::before {
+            content: "#{$i+1}";
+            background: rgba(adjust-hue($base, $i * 360deg / 12), 0.5);
+          }
+        }
+      }
+    }
+
+    .pentagon-base-base {
+      @include transform(translateY(50%) rotateX(-90deg)); // translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%)
+    }
+
+    .pentagon-base-side {
+      @include transform-origin(50%,50% + sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%);
+      
+      // @for $j from 1 to 6 {
+      //   &:nth-child(#{$j+1}) {
+      //     @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-90deg));
+      //     @include animation(xx#{$j} 1s ease-in-out 0s infinite alternate);
+      //   }
+      // }
+    }
+
+    $salt: 0.6;
+
+    @for $i from 1 to 6 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i} 3s ease-in-out #{$i * $salt}s infinite alternate);
+      }
+    }
+    @for $i from 7 to 12 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 7) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i - 6} 3s ease-in-out #{($i - 6) * $salt}s infinite alternate);
+      }
+    }
+  }
+}
+
+.demo-pentagon3d-4-container {
+  height: 8em;
+  width: 8em;
+  position: relative;
+  left: calc(50% - 4em);
+  top: calc(50% - 4em);
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+  @include animation(oo 20s ease-in-out 0s infinite alternate);
+  // @include transform-style(perserve-3d);
+  
+
+  .demo-pentagon3d-4 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include transform-style(preserve-3d);
+    @include transition(all 1s);
+    // @include transform(rotateX(90deg));
+    @include animation(ss 3s ease-in-out 0s infinite alternate);
+
+    .pentagon3d-group {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      @include transform-style(preserve-3d);
+    }
+
+    .pentagon3d-group-1 {
+      @include transform(translateY(-7.5%));  // 39.5%
+      @include animation(groupOne 2s ease-in-out 0s infinite alternate);
+
+    }
+
+    .pentagon3d-group-2 {
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-7.5%));
+      @include animation(groupTwo 2s ease-in-out 0s infinite alternate);
+    }
+
+    .pentagon-base {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      // @include backface-visibility(hidden);
+    }
+    $base: #00fffc;
+
+    @for $i from 0 to 12 {
+      .pentagon-base-#{$i+1} {
+        .demo-pentagon-inner {
+          &::before {
+            content: "#{$i+1}";
+            background: rgba(adjust-hue($base, $i * 360deg / 12), 0.5);
+          }
+        }
+      }
+    }
+
+    .pentagon-base-base {
+      @include transform(translateY(50%) rotateX(-90deg)); // translateY(sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%)
+    }
+
+    .pentagon-base-side {
+      @include transform-origin(50%,50% + sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%);
+      
+      // @for $j from 1 to 6 {
+      //   &:nth-child(#{$j+1}) {
+      //     @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-90deg));
+      //     @include animation(xx#{$j} 1s ease-in-out 0s infinite alternate);
+      //   }
+      // }
+    }
+
+    $salt: 0.6;
+
+    @for $i from 1 to 6 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i} #{3 - $i * $salt}s ease-in-out #{$i * $salt}s infinite alternate);
+      }
+    }
+    @for $i from 7 to 12 {
+      .pentagon-base-#{$i + 1} {
+        @include transform(translateY(#{$translateY}) rotateY(#{36 + ($i - 7) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        @include animation(xx#{$i - 6} #{3 - ($i - 6) * $salt}s ease-in-out #{($i - 6) * $salt}s infinite alternate);
       }
     }
   }
