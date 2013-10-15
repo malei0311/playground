@@ -385,7 +385,7 @@ $is_vertical: false;
     figure {
       @for $i from 0 to 720 {
         &:nth-child(#{$i + 1}) {
-          background: rgba(adjust-hue($base, $i * 360deg / $n), .5);
+          background: rgba(adjust-hue($base, $i * 360deg / 720), .5);
           @include transform(rotateX(#{$i/30}deg) translateY(#{$i/4}px) rotateY(#{$i*$circleDegree}deg) translateZ(8em));
         }
       }
@@ -396,7 +396,7 @@ $is_vertical: false;
     figure {
       @for $i from 0 to 720 {
         &:nth-child(#{$i + 1}) {
-          background: rgba(adjust-hue($base, $i * 360deg / $n), .5);
+          background: rgba(adjust-hue($base, $i * 360deg / 720), .5);
           @include transform(rotateX(#{$i/2}deg) rotateY(#{$i*$circleDegree}deg) translateZ(8em));
         }
       }
