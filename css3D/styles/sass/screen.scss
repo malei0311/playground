@@ -162,7 +162,7 @@ body {
     position: absolute;
     @include transform-style(preserve-3d);
     @include animation(ss 2s ease-in-out 0s infinite alternate);
-    @include transition(all 1s);
+    // @include transition(all 1s);
 
     .triangle {
       position: absolute;

@@ -1,0 +1,179 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "animation";
+
+body {
+  padding-top: 100px;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.playground {
+  width: 90%;
+  margin: 0 auto;
+  // border: 1px dashed rgba(0,0,0,.3);
+  padding: 10px 10px 0;
+}
+
+.playground-cell {
+  margin-bottom: 10px;
+  background-color: rgba(0,0,0,.05);
+  @extend .clearfix;
+}
+
+@mixin cross-line($width: 1px, $color: rgba(0,0,0,.3)) {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: 1;
+  }
+
+  &::before {
+    height: 100%;
+    width: 0;
+    border-left: #{$width} dashed #{$color};
+    left: calc(50% - #{$width} / 2);
+  }
+
+  &::after {
+    height: 0;
+    width: 100%;
+    border-top: #{$width} dashed #{$color};
+    top: calc(50% - #{$width} / 2);
+  }
+}
+
+.playground-demo-shadow {
+  $color: rgba(0,0,0,.3);
+  border: 1px dashed #{$color};
+  float: left;
+  position: relative;
+
+  @include cross-line(1px, $color);
+}
+
+// 540deg 108deg 90 + 18
+.demo-pentagon {
+  position: relative;
+  height: 8em;
+  width: 8em;
+  overflow: hidden;
+  $translateY_zero: sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%;
+  @include transform(translateY(#{$translateY_zero}) rotate(-36deg) skewX(18deg) scaleY(cos(18deg)));
+
+  .demo-pentagon-inner {
+    $translateY_one: sin(36deg)/(2*sin(18deg)+1)*100%;
+    $translateY_two: 50% - $translateY_one;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // background: red;
+    overflow: hidden;
+    @include transform(scaleY(1/cos(18deg)) skewX(-18deg) rotate(36deg) translateY(-#{$translateY_one}) rotate(18deg) skewY(54deg) scaleX(cos(54deg)));
+  
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+      color: #fff;
+      line-height: 9em;
+      text-align: center;
+      background-color: rgba(0, 28, 255, 0.5);
+      @include transform(scaleX(1/cos(54deg)) skewY(-54deg) rotate(-18deg) translateY(-#{$translateY_two}));
+    }
+  }
+}
+
+@include keyframes(ss) {
+  0% {
+    @include transform(rotateY(0deg) rotateX(0deg));
+  }
+  100% {
+    @include transform(rotateY(720deg) rotateX(360deg));
+  }
+}
+
+.demo-pentagon3d-container {
+  height: 8em;
+  width: 8em;
+  position: relative;
+  @include perspective(1000px);
+  @include perspective-origin(50% 50%);
+  // @include transform-style(perserve-3d);
+  
+
+  .demo-pentagon3d {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include transform-style(preserve-3d);
+    @include transition(all 1s);
+    @include animation(ss 2s ease-in-out 0s infinite alternate);
+
+    .pentagon3d-group {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      @include transform-style(preserve-3d);
+    }
+
+    .pentagon3d-group-1 {
+      // @include transform(rotateX(-45deg));
+
+    }
+
+    .pentagon3d-group-2 {
+      @include transform(rotateX(180deg) rotateY(72deg) translateY(-15%));
+    }
+
+    .pentagon-base {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+    $base: #00fffc;
+
+    @for $i from 0 to 12 {
+      .pentagon-base-#{$i+1} {
+        .demo-pentagon-inner {
+          &::before {
+            content: "#{$i+1}";
+            background: rgba(adjust-hue($base, $i * 360deg / 12), 0.5);
+          }
+        }
+      }
+    }
+
+    $translateZ: 8 * sin(18deg)/(tan(36deg)*(2*sin(18deg)+1));
+
+    .pentagon-base-base {
+      @include transform(translateY(50%) rotateX(-90deg));
+    }
+
+    .pentagon-base-side {
+      @include transform-origin(50%,50% + sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%);
+      
+      @for $j from 1 to 6 {
+        &:nth-child(#{$j+1}) {
+          @include transform(translateY(50% - sin(18deg)/(tan(36deg)*(2*sin(18deg)+1))*100%) rotateY(#{36 + ($j - 1) * 72}deg) translateZ(#{$translateZ}em) rotateX(-27deg));
+        }
+      }
+    }
+  }
+}

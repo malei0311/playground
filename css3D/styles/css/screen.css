@@ -317,10 +317,6 @@ body {
   -ms-animation: ss 2s ease-in-out 0s infinite alternate;
   -o-animation: ss 2s ease-in-out 0s infinite alternate;
   animation: ss 2s ease-in-out 0s infinite alternate;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
 }
 /* line 167, ../sass/screen.scss */
 .demo-prism-container .demo-prism .triangle {
