@@ -1,8 +1,9 @@
 
 // http://codestar.alloyteam.com/
 
-//第三关 不想做，拔下面的代码扔到 console 里，即可过
-(function() {
+//第三关 不想做，把下面的代码扔到 console 里，然后执行 window.pass*****()  *****为时间戳
+
+~function(document,window) {
   function f() {
     ajax("/pass", {
       method: "POST",
@@ -36,8 +37,10 @@
   window["pass" + e] = function() {
     f();
   };
-  console.log("\n\u7b2c\u4e09\u7ae0\uff1a\u4ea4\u950b\n")
-})();
+  if('console' in window && 'log' in window.console) {
+    console.log("\n\u7b2c\u4e09\u7ae0\uff1a\u4ea4\u950b\n")
+  }
+}(document,window);
 
 
 // 第五关 把下面的代码扔到 console 里，会有两个数组，跟着任意一个数组的顺序点，即可过
