@@ -43,7 +43,7 @@
 }(document,window);
 
 
-// 第五关 把下面的代码扔到 console 里，会有两个数组，跟着任意一个数组的顺序点，即可过
+// 第五关 把下面的代码扔到 console 里，会有若干个数组，跟着任意一个数组的顺序点，即可过
 ~function(document,window){
 
   var arr = [],s = [],i = 1,cc = 0,result = [],temp;arr[cc] = [];
